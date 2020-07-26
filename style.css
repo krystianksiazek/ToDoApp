@@ -1,0 +1,25 @@
+body {
+  background-color: rgb(95, 142, 140);
+}
+h1 {
+  margin: 10px;
+  color: white;
+}
+#mainPanel {
+  max-width: 600px;
+
+}
+#headerPanel {
+  background-color: rgb(80, 131, 90);
+  height: 68px;
+}
+#addingPanel {
+  background-color: white;
+  padding: 10px;
+}
+#item {
+  height: 60px;
+  border: none;
+  font-size: 30px;
+  width: 100%;
+}
