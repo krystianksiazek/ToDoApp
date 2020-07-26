@@ -6,20 +6,20 @@ h1 {
   color: white;
 }
 #mainPanel {
-  max-width: 600px;
+  max-width: 560px;
 
 }
 #headerPanel {
   background-color: rgb(80, 131, 90);
-  height: 68px;
+  height: 70px;
 }
 #addingPanel {
   background-color: white;
-  padding: 10px;
+  padding: 5px;
 }
 #item {
   height: 60px;
   border: none;
-  font-size: 30px;
+  font-size: 25px;
   width: 100%;
 }
