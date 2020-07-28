@@ -1,5 +1,10 @@
 body {
   background-color: rgb(95, 142, 140);
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 h1 {
   margin: 10px;
@@ -17,7 +22,7 @@ h1 {
   background-color: white;
   padding: 0px;
 }
-#item {
+#typeItem {
   height: 70px;
   border: none;
   font-size: 25px;
@@ -39,4 +44,24 @@ p {
 }
 .emptyItem {
   background-color: rgb(153, 74, 74);
+}
+
+.itemDone {
+  text-decoration: line-through;
+}
+
+ul {
+  margin: 0;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+}
+
+.oneItem {
+  height: 50px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-left: 10px;
+  background-color: white;
+
 }
