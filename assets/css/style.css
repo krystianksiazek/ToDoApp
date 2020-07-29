@@ -48,6 +48,7 @@ p {
 
 .itemDone {
   text-decoration: line-through;
+  color: rgb(170, 170, 170);
 }
 
 ul {
@@ -63,5 +64,10 @@ ul {
   padding-top: 5px;
   padding-left: 10px;
   background-color: white;
+}
 
+#delButton {
+  float: right;
+  margin-right: 10px;
+  color: rgb(185, 37, 37);
 }
