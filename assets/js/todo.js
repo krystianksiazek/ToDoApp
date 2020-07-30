@@ -48,9 +48,6 @@ function addingItem(item) {
   $(element).addClass('oneItem');
   $(element).attr('onclick', 'markDone(this)');
   itemTable.push(item);
-  console.log(itemTable);
-  console.log(itemTable.indexOf(item));
-  console.log(item);
   addingDelButton(element);
 }
 
