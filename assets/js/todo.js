@@ -1,27 +1,17 @@
 $('#typeItem').val("");
+var itemTable = [];
 $('#typeItem').keyup(function(event) {
   if (event.which == '13') {
     if ($('#typeItem').val() == "") {
       validation(0);
     } else if ($('#typeItem').val().startsWith(" ") == true) {
       validation(1);
+    } else if (itemTable.indexOf($('#typeItem').val()) >= 0) {
+      validation(2);
     } else {
       var itemBody = $('#typeItem').val();
-      if ($('#' + itemBody) >= 1) {
-        //testing
-        console.log($('#' + itemBody).length);
-
-        validation(2);
-      } else {
-        //testing
-        console.log(('#' + itemBody).length);
-        console.log(('#' + itemBody).trim(" "));
-        console.log($('#' + itemBody));
-        console.log($('#' + itemBody).find('li'));
-
-        addingItem($('#typeItem').val());
-        $('#typeItem').val("");
-      }
+      addingItem($('#typeItem').val());
+      $('#typeItem').val("");
     }
   }
 });
@@ -57,14 +47,19 @@ function addingItem(item) {
   $(element).attr('id', item);
   $(element).addClass('oneItem');
   $(element).attr('onclick', 'markDone(this)');
+  itemTable.push(item);
+  console.log(itemTable);
+  console.log(itemTable.indexOf(item));
+  console.log(item);
   addingDelButton(element);
 }
 
 $('li').hover(
   function() {
-    $( this ).append( $( "<span> ***</span>" ) );
-  }, function() {
-    $( this ).find( "span" ).last().remove();
+    $(this).append($("<span> ***</span>"));
+  },
+  function() {
+    $(this).find("span").last().remove();
   }
 );
 
@@ -80,5 +75,8 @@ function addingDelButton(appToThis) {
 }
 
 function deletingItem(itemToDelete) {
+  var deleter = itemToDelete.textContent;
+  deleter = deleter.substr(0, deleter.length-1);
+  itemTable.splice(itemTable.indexOf(deleter), 1);
   $(itemToDelete).remove();
 }
