@@ -51,15 +51,6 @@ function addingItem(item) {
   addingDelButton(element);
 }
 
-$('li').hover(
-  function() {
-    $(this).append($("<span> ***</span>"));
-  },
-  function() {
-    $(this).find("span").last().remove();
-  }
-);
-
 function markDone(item) {
   $(item).toggleClass('itemDone');
 }
@@ -73,7 +64,19 @@ function addingDelButton(appToThis) {
 
 function deletingItem(itemToDelete) {
   var deleter = itemToDelete.textContent;
-  deleter = deleter.substr(0, deleter.length-1);
+  deleter = deleter.substr(0, deleter.length - 1);
   itemTable.splice(itemTable.indexOf(deleter), 1);
   $(itemToDelete).remove();
 }
+
+// $(document).on('mouseenter', 'li', function(event) {
+//   $(this).animate({
+//     marginLeft: '50px'
+//   }, 250)
+//   $('#delButton').show();
+// }).on('mouseleave', 'li', function(event) {
+//   $(this).animate({
+//     marginLeft: '0px'
+//   }, 250)
+//   $('#delButton').hide();
+// });
