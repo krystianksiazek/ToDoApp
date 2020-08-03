@@ -56,10 +56,10 @@ function markDone(item) {
 }
 
 function addingDelButton(appToThis) {
-  var delButton = $("<span></span>").text("x");
+  var delButton = $("<span><i class=\"fas fa-trash\"></i></span>");
   $(delButton).attr('id', 'delButton');
   $(delButton).attr('onclick', 'deletingItem(this.parentElement)');
-  $(delButton).appendTo(appToThis);
+  $(delButton).prependTo(appToThis);
 }
 
 function deletingItem(itemToDelete) {
