@@ -9,6 +9,7 @@ body {
 h1 {
   margin: 10px;
   color: white;
+  width: 100%;
 }
 #mainPanel {
   max-width: 560px;
@@ -70,16 +71,6 @@ ul {
   line-height: 50px;
 }
 
-/* #delButton {
-  margin-top: -5px;
-  margin-left: -10px;
-  height: 50px;
-  width: 50px;
-  float: left;
-  color: rgb(185, 37, 37);
-  display: none;
-} */
-
 #delButton {
   float: left;
   color: white;
@@ -107,4 +98,10 @@ span {
   margin-right: 10px;
   transition: 0.2s linear;
   opacity: 0;
+}
+
+.fa-plus {
+  color: rgb(95, 142, 140);
+  font-size: 50px;
+  float: right;
 }
