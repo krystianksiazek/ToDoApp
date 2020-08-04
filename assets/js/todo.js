@@ -16,6 +16,14 @@ $('#typeItem').keyup(function(event) {
   }
 });
 
+$(window).resize(function() {
+  checkMobile();
+});
+
+$('.fa-plus').click(function() {
+  $('#typeItem').slideToggle("slow");
+});
+
 function validation(errCode) {
   $('#typeItem').val("");
   switch (errCode) {
@@ -69,14 +77,9 @@ function deletingItem(itemToDelete) {
   $(itemToDelete).remove();
 }
 
-// $(document).on('mouseenter', 'li', function(event) {
-//   $(this).animate({
-//     marginLeft: '50px'
-//   }, 250)
-//   $('#delButton').show();
-// }).on('mouseleave', 'li', function(event) {
-//   $(this).animate({
-//     marginLeft: '0px'
-//   }, 250)
-//   $('#delButton').hide();
-// });
+function checkMobile() {
+  if (window.innerWidth < window.innerHeight) {
+    console.log("You are on mobile");
+    return true;
+  } else return false;
+}
