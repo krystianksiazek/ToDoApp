@@ -17,8 +17,22 @@ $('#typeItem').keyup(function(event) {
 });
 
 $(window).resize(function() {
-  checkMobile();
+  mobileOnOff();
 });
+
+function mobileOnOff() {
+  if (checkMobile() == true) {
+    $('.oneItem').attr('onclick', '');
+    $('span').hide();
+    $('li').css('padding-left', '10px');
+    popover(1);
+  } else {
+    $('.oneItem').attr('onclick', 'markDone(this)');
+    $('span').show();
+    $('li').css('padding-left', '0');
+    popover(0);
+  }
+}
 
 $('.fa-plus').click(function() {
   $('#typeItem').slideToggle("slow");
@@ -57,6 +71,7 @@ function addingItem(item) {
   $(element).attr('onclick', 'markDone(this)');
   itemTable.push(item);
   addingDelButton(element);
+  mobileOnOff();
 }
 
 function markDone(item) {
@@ -78,8 +93,20 @@ function deletingItem(itemToDelete) {
 }
 
 function checkMobile() {
-  if (window.innerWidth < window.innerHeight) {
-    console.log("You are on mobile");
-    return true;
-  } else return false;
+  if (window.innerWidth < window.innerHeight) return true;
+  else return false;
+}
+
+function popover(toggler) {
+  switch (toggler) {
+    case 0:
+      $('#itemsPanel').off();
+      break;
+    case 1:
+      // $('#itemsPanel').on();
+      $('[data-toggle="popover"]').popover();
+      break;
+    default:
+
+  }
 }
