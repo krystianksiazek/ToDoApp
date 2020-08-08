@@ -96,7 +96,7 @@ function addingDelButton(appToThis) {
 
 function deletingItem(itemToDelete) {
   var deleter = itemToDelete.textContent;
-  deleter = deleter.substr(0, deleter.length - 1);
+  deleter = deleter.substr(0, deleter.length);
   itemTable.splice(itemTable.indexOf(deleter), 1);
   $(itemToDelete).remove();
 }
