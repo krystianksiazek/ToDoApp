@@ -22,16 +22,25 @@ $(window).resize(function() {
 
 function mobileOnOff() {
   if (checkMobile() == true) {
-    $('.oneItem').attr('onclick', '');
     $('span').hide();
     $('li').css('padding-left', '10px');
-    popover(1);
   } else {
-    $('.oneItem').attr('onclick', 'markDone(this)');
     $('span').show();
     $('li').css('padding-left', '0');
-    popover(0);
   }
+}
+
+if (checkMobile() == true) {
+  var slipMainList = document.getElementById('mainList');
+  slipMainList.addEventListener('slip:swipe', function(e) {
+    e.target.parentNode.removeChild(e.target);
+    deletingItem(e.target);
+  });
+  slipMainList.addEventListener('slip:reorder', function(e) {
+    e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+  });
+
+  new Slip(slipMainList);
 }
 
 $('.fa-plus').click(function() {
@@ -68,7 +77,7 @@ function addingItem(item) {
   $(element).appendTo('#mainList');
   $(element).attr('id', item);
   $(element).addClass('oneItem');
-  $(element).attr('onclick', 'markDone(this)');
+  $(element).attr('ondblclick', 'markDone(this)');
   itemTable.push(item);
   addingDelButton(element);
   mobileOnOff();
@@ -95,18 +104,4 @@ function deletingItem(itemToDelete) {
 function checkMobile() {
   if (window.innerWidth < window.innerHeight) return true;
   else return false;
-}
-
-function popover(toggler) {
-  switch (toggler) {
-    case 0:
-      $('#itemsPanel').off();
-      break;
-    case 1:
-      // $('#itemsPanel').on();
-      $('[data-toggle="popover"]').popover();
-      break;
-    default:
-
-  }
 }
