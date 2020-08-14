@@ -43,7 +43,7 @@ if (checkMobile() == true) {
   new Slip(slipMainList);
 }
 
-$('.fa-plus').click(function() {
+$('#cross').click(function() {
   $('#typeItem').slideToggle("slow");
 });
 
@@ -88,7 +88,7 @@ function markDone(item) {
 }
 
 function addingDelButton(appToThis) {
-  var delButton = $("<span><i class=\"fas fa-trash\"></i></span>");
+  var delButton = $("<span>✕</span>");
   $(delButton).attr('id', 'delButton');
   $(delButton).attr('onclick', 'deletingItem(this.parentElement)');
   $(delButton).prependTo(appToThis);
