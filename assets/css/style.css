@@ -6,23 +6,31 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
 h1 {
   margin: 10px;
   color: white;
   width: 100%;
 }
+
 #mainPanel {
   max-width: 560px;
-
 }
+
 #headerPanel {
   background-color: rgb(80, 131, 90);
   height: 70px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
+
 #addingPanel {
   background-color: white;
   padding: 0px;
 }
+
 #typeItem {
   height: 70px;
   border: none;
@@ -36,9 +44,11 @@ h1 {
 #typeItem:focus {
   background-color: white;
 }
+
 p {
   margin: 0;
 }
+
 .footer {
   position: fixed;
   left: 0;
@@ -49,6 +59,7 @@ p {
   text-align: center;
   margin-bottom: 5px;
 }
+
 .emptyItem {
   background-color: rgb(153, 74, 74);
 }
@@ -72,15 +83,14 @@ ul {
 }
 
 #delButton {
-  float: left;
-  color: white;
+  float: left; /* !!! */
 }
 
 li {
   background-color: white;
 }
 
-li:hover span{
+li:hover span {
   padding: 0 10px 0 10px;
   width: 50px;
   opacity: 1;
@@ -91,6 +101,7 @@ li:nth-child(2n) {
 }
 
 span {
+  color: white;
   padding: 0;
   text-align: center;
   background-color: rgb(185, 79, 79);
@@ -98,10 +109,25 @@ span {
   margin-right: 10px;
   transition: 0.2s linear;
   opacity: 0;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.fa-plus {
-  color: rgb(95, 142, 140);
-  font-size: 50px;
-  float: right;
+#cross {
+  background: rgb(95, 142, 140);
+  height: 50px;
+  position: relative;
+  width: 10px;
+  left: -30px;
+}
+
+#cross:after {
+  background: rgb(95, 142, 140);
+  content: "";
+  height: 10px;
+  left: -20px;
+  position: absolute;
+  top: 20px;
+  width: 50px;
 }
