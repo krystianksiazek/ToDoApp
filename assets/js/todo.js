@@ -16,22 +16,35 @@ $('#typeItem').keyup(function(event) {
   }
 });
 
-// $(window).resize(function() {
-//   mobileOnOff();
-// });
-// $(document).ready(function() {
-//   mobileOnOff();
-// });
+$(window).resize(function() {
+  mobileOnOff();
+});
 
-// function mobileOnOff() {
-//   if (checkMobile() == true) {
-//     $('span').hide();
-//     $('li').css('padding-left', '10px');
-//   } else {
-//     $('span').show();
-//     $('li').css('padding-left', '0');
-//   }
-// }
+function mobileOnOff() {
+  if (checkMobile() == true) {
+    $('span').hide();
+    $('li').css('padding-left', '10px');
+  } else {
+    $('span').show();
+    $('li').css('padding-left', '0');
+  }
+}
+
+if (checkMobile() == true) {
+  var slipMainList = document.getElementById('mainList');
+  slipMainList.addEventListener('slip:swipe', function(e) {
+    if(isDone(e.target) == true) {
+      e.target.parentNode.removeChild(e.target);
+      deletingItem(e.target);
+    }
+    else alert("This item is not ready!");
+  });
+  slipMainList.addEventListener('slip:reorder', function(e) {
+    e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+  });
+
+  new Slip(slipMainList);
+}
 
 $('#cross').click(function() {
   $('#typeItem').slideToggle("slow");
@@ -70,13 +83,17 @@ function addingItem(item) {
   $(element).attr('ondblclick', 'markDone(this)');
   itemTable.push(item);
   addingDelButton(element);
-  // mobileOnOff();
+  mobileOnOff();
 }
 
 function markDone(item) {
   $(item).toggleClass('itemDone');
 }
 
+function isDone(item) {
+  if ($(item).hasClass('itemDone')) return true;
+  else return false;
+}
 function addingDelButton(appToThis) {
   var delButton = $("<span>✕</span>");
   $(delButton).attr('id', 'delButton');
@@ -85,7 +102,6 @@ function addingDelButton(appToThis) {
 }
 
 function deletingItem(itemToDelete) {
-
   if ($(itemToDelete).hasClass('itemDone')) {
     var deleter = itemToDelete.textContent;
     deleter = deleter.substr(0, deleter.length);
@@ -94,7 +110,6 @@ function deletingItem(itemToDelete) {
   } else {
     alert("This item is not ready!");
   }
-
 }
 
 function checkMobile() {
