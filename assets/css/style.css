@@ -7,10 +7,93 @@ body {
   user-select: none;
 }
 
+p {
+  margin: 0;
+}
+
 h1 {
   margin: 10px;
   color: white;
   width: 100%;
+}
+
+ul {
+  margin: 0;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: white;
+}
+
+li:hover span {
+  padding: 0 10px 0 10px;
+  width: 50px;
+  opacity: 1;
+}
+
+li:nth-child(2n) {
+  background-color: rgb(240, 240, 240);
+}
+
+span {
+  color: white;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(185, 79, 79);
+  width: 0;
+  margin-right: 10px;
+  transition: 0.2s linear;
+  opacity: 0;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
+  color: rgb(199, 199, 199);
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.itemDone {
+  text-decoration: line-through;
+  color: rgb(170, 170, 170);
+}
+
+.oneItem {
+  height: 50px;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+#delButton {
+  float: left; /* !!! */
+}
+
+#cross {
+  background: rgb(95, 142, 140);
+  height: 50px;
+  position: relative;
+  width: 10px;
+  left: -30px;
+}
+
+#cross:after {
+  background: rgb(95, 142, 140);
+  content: "";
+  height: 10px;
+  left: -20px;
+  position: absolute;
+  top: 20px;
+  width: 50px;
 }
 
 #mainPanel {
@@ -43,91 +126,4 @@ h1 {
 
 #typeItem:focus {
   background-color: white;
-}
-
-p {
-  margin: 0;
-}
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  font-size: 10px;
-  color: rgb(199, 199, 199);
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.emptyItem {
-  background-color: rgb(153, 74, 74);
-}
-
-.itemDone {
-  text-decoration: line-through;
-  color: rgb(170, 170, 170);
-}
-
-ul {
-  margin: 0;
-  width: 100%;
-  list-style-type: none;
-  padding: 0;
-}
-
-.oneItem {
-  height: 50px;
-  font-size: 20px;
-  line-height: 50px;
-}
-
-#delButton {
-  float: left; /* !!! */
-}
-
-li {
-  background-color: white;
-}
-
-li:hover span {
-  padding: 0 10px 0 10px;
-  width: 50px;
-  opacity: 1;
-}
-
-li:nth-child(2n) {
-  background-color: rgb(240, 240, 240);
-}
-
-span {
-  color: white;
-  padding: 0;
-  text-align: center;
-  background-color: rgb(185, 79, 79);
-  width: 0;
-  margin-right: 10px;
-  transition: 0.2s linear;
-  opacity: 0;
-  font-style: normal;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-#cross {
-  background: rgb(95, 142, 140);
-  height: 50px;
-  position: relative;
-  width: 10px;
-  left: -30px;
-}
-
-#cross:after {
-  background: rgb(95, 142, 140);
-  content: "";
-  height: 10px;
-  left: -20px;
-  position: absolute;
-  top: 20px;
-  width: 50px;
 }
