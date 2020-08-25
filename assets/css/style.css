@@ -28,16 +28,6 @@ li {
   background-color: white;
 }
 
-li:hover span {
-  padding: 0 10px 0 10px;
-  width: 50px;
-  opacity: 1;
-}
-
-li:nth-child(2n) {
-  background-color: rgb(240, 240, 240);
-}
-
 span {
   color: white;
   padding: 0;
@@ -50,6 +40,16 @@ span {
   font-style: normal;
   font-size: 20px;
   font-weight: bold;
+}
+
+li:hover span {
+  padding: 0 10px 0 10px;
+  width: 50px;
+  opacity: 1;
+}
+
+li:nth-child(2n) {
+  background-color: rgb(240, 240, 240);
 }
 
 .footer {
@@ -86,7 +86,7 @@ span {
   left: -30px;
 }
 
-#cross:after {
+#cross::after {
   background: rgb(95, 142, 140);
   content: "";
   height: 10px;
@@ -111,7 +111,7 @@ span {
 
 #addingPanel {
   background-color: white;
-  padding: 0px;
+  padding: 0;
 }
 
 #typeItem {
