@@ -7,7 +7,7 @@ function checkMobile() {
 }
 
 function mobileOnOff() {
-  if (checkMobile() == true) {
+  if (checkMobile() === true) {
     $('span').hide();
     $('li').css('padding-left', '10px');
   } else {
@@ -91,10 +91,10 @@ $('#cross').click(() => {
   $('#typeItem').slideToggle('slow');
 });
 
-if (checkMobile() == true) {
+if (checkMobile() === true) {
   const slipMainList = document.getElementById('mainList');
   slipMainList.addEventListener('slip:swipe', (e) => {
-    if (isDone(e.target) == true) {
+    if (isDone(e.target) === true) {
       e.target.parentNode.removeChild(e.target);
       deletingItem(e.target);
     } else alert('This item is not ready!');
@@ -108,9 +108,9 @@ if (checkMobile() == true) {
 
 $('#typeItem').keyup((event) => {
   if (event.which == '13') {
-    if ($('#typeItem').val() == '') {
+    if ($('#typeItem').val() === '') {
       validation(0);
-    } else if ($('#typeItem').val().startsWith(' ') == true) {
+    } else if ($('#typeItem').val().startsWith(' ') === true) {
       validation(1);
     } else if (itemTable.indexOf($('#typeItem').val()) >= 0) {
       validation(2);
